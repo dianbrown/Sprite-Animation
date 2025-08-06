@@ -1,0 +1,26 @@
+body {
+  padding: 20px;
+  text-align: center;
+}
+
+.ryu {
+  width: 435px;
+  height: 267px;
+  margin: -5% auto 0 auto; /* positioning tweak */
+  background:  url('Assets/Sprites/ryu-sprite-demo.png') no-repeat 0 0%;
+  animation: sprite 3.5s steps(45) infinite;
+}
+
+@keyframes sprite {
+  from { background-position: 0 0%; }
+  to { background-position: 0 100%; }
+}
+
+h1 {
+  font-size: 1.2em;
+}
+
+.p {
+  margin-top: 120px;
+  font-size: 14px;
+}
