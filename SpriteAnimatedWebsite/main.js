@@ -19,8 +19,27 @@ function setup(texture) {
   console.log('Setup function called');
   console.log('Texture:', texture);
   
-  // Create a simple sprite from the texture
-  const pet = new PIXI.Sprite(texture);
+  // Create animation frames from sprite sheet
+  // Assuming 64x64 sprite sheet with 16x16 frames (4x4 grid)
+  const frameWidth = 16;
+  const frameHeight = 16;
+  const framesPerRow = 4;
+  const animationFrames = [];
+  
+  // Create frames for the first row (walking animation)
+  for (let i = 0; i < framesPerRow; i++) {
+    const frameTexture = new PIXI.Texture(
+      texture.baseTexture,
+      new PIXI.Rectangle(i * frameWidth, 0, frameWidth, frameHeight)
+    );
+    animationFrames.push(frameTexture);
+  }
+  
+  // Create animated sprite
+  const pet = new PIXI.AnimatedSprite(animationFrames);
+  pet.animationSpeed = 0.1;  // Adjust speed as needed
+  pet.play();
+  
   pet.anchor.set(0.5, 1);         // center bottom
   pet.x = 100;                    // start X
   pet.y = app.renderer.height;    // ground level
@@ -53,6 +72,18 @@ function setup(texture) {
         pet.vx *= -1;
         pet.scale.x *= -1;      // flip horizontally
       }
+      
+      // Control animation playback based on movement
+      if (pet.vx !== 0 && !pet.playing) {
+        pet.play();
+      } else if (pet.vx === 0 && pet.playing) {
+        pet.stop();
+      }
+    } else {
+      // Stop animation when dragging
+      if (pet.playing) {
+        pet.stop();
+      }
     }
   });
 
@@ -61,6 +92,7 @@ function setup(texture) {
     pet.data = event.data;
     pet.dragging = true;
     pet.vx = 0;
+    pet.stop(); // Stop animation when dragging starts
   }
 
   function onDragMove() {
@@ -74,5 +106,6 @@ function setup(texture) {
   function onDragEnd() {
     pet.dragging = false;
     pet.data = null;
+    pet.play(); // Resume animation when drag ends
   }
 }
