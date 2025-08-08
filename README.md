@@ -13,7 +13,7 @@ This repository is intended for testing and learning how to:
 ## Features
 - 🌟 **CSS Sprite Animations** (simple and lightweight)  
 - 🎮 **JavaScript Canvas Animations** (for more dynamic control)  
-- ⚡ **Experiment with Libraries** like **GSAP** or **Phaser** or **PIXIEjs** in the future  
+- ⚡ **Experiment with Libraries** like **GSAP** or **Phaser** or **PIXIjs** in the future  
 - 🖌️ **Custom sprite sheets** exported from **Aseprite**  
 
 ---
@@ -22,7 +22,7 @@ This repository is intended for testing and learning how to:
 - **HTML5 & CSS3** (for lightweight sprite animation)
 - **JavaScript (Canvas API)** for game-like animations
 - **Aseprite** (for creating and exporting sprite sheets)
-- **PIXIEjs** (for handling all physics and better animations)
+- **PIXIjs** (for handling all physics and better animations)
 
 ---
 
@@ -30,7 +30,7 @@ This repository is intended for testing and learning how to:
 - ✅ Basic CSS `steps()` sprite animation  
 - ✅ JavaScript canvas sprite walking left/right  
 - ✅ Flipping & directional control for sprites  
-- ✅ GSAP/Phaser.js/PIXIEjs sprite animation tests
+- ✅ GSAP/Phaser.js/PIXIjs sprite animation tests
 - ⏳ Full physics
 - ⏳ More animations per sprite
 - ⏳ Interactive sprites
